@@ -3,12 +3,6 @@ import { Statistics } from '../Statistics';
 import { FeedbackOptions } from './FeedbackStyled/FeedbackOptions';
 import { Section } from './Section';
 
-const state = {
-  good: 'good',
-  neutral: 'neutral',
-  bad: 'bad',
-};
-
 export const Feedback = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
@@ -43,7 +37,7 @@ export const Feedback = () => {
       <Section title={'Leave your feedback'}>
         <FeedbackOptions
           onLeaveFeedback={onLeaveFeedback}
-          options={Object.keys(state)}
+          options={Object.keys({ good, bad, neutral })}
         />
       </Section>
       <Section title={'Statistics'}>
@@ -62,20 +56,3 @@ export const Feedback = () => {
     </div>
   );
 };
-
-// export class Feedback extends Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   };
-
-//   countTotalFeedback = (good, bad, neutral) => {
-//     return bad + neutral + good;
-//   };
-
-//   render() {
-//     const { good, bad, neutral } = this.state;
-
-//   }
-// }
